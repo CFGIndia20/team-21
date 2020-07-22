@@ -2,6 +2,12 @@
 Hi friends,
 
 This is just playing with git. Its a nice book though if you wanna give it a read.
+I'm Nishit
+### forgot to mention contact detials :-)
+Anyway ping me at nishitrao1011@gmail.com
+LinkedIn: https://www.linkedin.com/in/nishit-rao-76a04517a
+Looking forward to working with yaall....
+So Excited!!!!!
 
 ###
 Hey guys,
@@ -25,5 +31,7 @@ Looking forward to working with you too :smile:
 Hello Guys,
 This is Sowjanya. Really looking forward to working with you all! :)
 sowjanyam.ec17@rvce.edu.in
+
+
 
 
