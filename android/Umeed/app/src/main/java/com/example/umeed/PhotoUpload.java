@@ -111,7 +111,6 @@ public class PhotoUpload extends AppCompatActivity {
                                 cursor.close();
                             }
                         }
-
                     }
                     break;
             }
