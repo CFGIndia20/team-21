@@ -101,19 +101,9 @@ public class WorkDoneActivity extends AppCompatActivity {
         helper.attachToRecyclerView(mRecyclerView);
     }
 
-
     private void initializeData() {
-
         String[] desc,empId,encodedImage;
         mWorkData.clear();
-
-
-
-
-
-
-
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://ramji12.atwebpages.com/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -125,14 +115,14 @@ public class WorkDoneActivity extends AppCompatActivity {
             public void onResponse(Call<List<WorkData>> call, Response<List<WorkData>> response) {
                 if (!response.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), "Data and File Uploaded Successfully...", Toast.LENGTH_LONG).show();
-
                     return;
                 }
                 List<WorkData> posts = response.body();
                 for (WorkData post : posts) {
-
-//                    mWorkData.add(new WorkData(post.getDesc(),post.getEmpId(),post.getEncodedImage()));
+                    mWorkData.add(new WorkData(post.getDesc(),post.getEmpId(),post.getEncodedImage()));
                 }
+                // Notify the adapter of the change.
+                mAdapter.notifyDataSetChanged();
             }
             @Override
             public void onFailure(Call<List<WorkData>> call, Throwable t) {
