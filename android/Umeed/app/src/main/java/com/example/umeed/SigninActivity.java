@@ -2,6 +2,7 @@ package com.example.umeed;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,38 +21,46 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SigninActivity extends AppCompatActivity {
+    private EditText name;
+    private EditText email;
+    private EditText age;
+    private EditText community;
+    private EditText psw;
+    private EditText psw2;
+    private EditText phone;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
-        final EditText name = findViewById(R.id.full_name);
-        final EditText email = findViewById(R.id.email);
-        final EditText age = findViewById(R.id.age);
-        final EditText community = findViewById(R.id.community);
-        final EditText psw = findViewById(R.id.psw);
-        final EditText psw2 = findViewById(R.id.psw_again);
+
 
         Button loginBtn = (Button) findViewById(R.id.signup);
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (psw != psw2) {
-                    Toast.makeText(getApplicationContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
-                } else {
-                    SignUp(name, email, age, community, psw);
-
-                }
+                SignUp();
             }
 
         });
     }
 
-    protected void SignUp(final EditText name, final EditText email, final EditText age, final EditText community, final EditText psw) {
+    protected void SignUp() {
+        name = findViewById(R.id.full_name);
+        email = findViewById(R.id.email);
+        age = findViewById(R.id.age);
+        community = findViewById(R.id.community);
+        psw = findViewById(R.id.psw);
+        psw2 = findViewById(R.id.psw_again);
+        phone = findViewById(R.id.phone);
+        Log.d("hello","hi");
         //TODO: get signin results from backend
-        StringRequest request = new StringRequest(Request.Method.POST, "hrrps://",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://ramji12.atwebpages.com/ImageUploadApi/DbConnect.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        Log.d("signup response",response);
                         Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
                         if (response.contains("1")) {
                             //startActivity(user);
@@ -62,6 +71,7 @@ public class SigninActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Log.d("error",error.toString());
 
             }
         }
@@ -73,6 +83,7 @@ public class SigninActivity extends AppCompatActivity {
                 params.put("fullname", name.toString());
                 params.put("password", psw.toString());
                 params.put("age", age.toString());
+                params.put("phone", phone.toString());
                 params.put("communtiy", community.toString());
                 return params;
             }

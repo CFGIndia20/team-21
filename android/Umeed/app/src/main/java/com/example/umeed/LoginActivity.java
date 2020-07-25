@@ -1,5 +1,6 @@
 package com.example.umeed;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -29,7 +30,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        //ActionBar actionBar = getSupportActionBar(); // or getActionBar();
+        getSupportActionBar().setTitle("Login");
         name_txt = findViewById(R.id.name_text);
         psw_txt = findViewById(R.id.psw_text);
         Button login = findViewById(R.id.login_btn);
@@ -60,7 +62,6 @@ public class LoginActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("check hello response", response);
                         if(response.contains("1")){
                             //startActivity(user);
                             //Toast.makeText(getApplicationContext(), "IT works", Toast.LENGTH_SHORT).show();
