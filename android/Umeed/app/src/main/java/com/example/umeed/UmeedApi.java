@@ -12,5 +12,5 @@ public interface UmeedApi {
 
     @Multipart
     @POST("/images/upload")
-    Call<PhotoUpload> uploadImage(@Part("image\"; filename=\"myfile.jpg\" ") RequestBody file, @Part("desc") RequestBody desc);
+    Call<WorkData> uploadImage(@Part("image\"; filename=\"myfile.jpg\" ") RequestBody file, @Part("desc") RequestBody desc,@Part("empId") RequestBody empId);
 }

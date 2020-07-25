@@ -16,4 +16,12 @@
         android:onClick = "insertProductPhoto"
         tools:layout_editor_absoluteY="249dp" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:id="@+id/login_btn">
+    </Button>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

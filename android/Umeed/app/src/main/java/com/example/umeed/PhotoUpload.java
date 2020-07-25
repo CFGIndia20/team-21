@@ -28,6 +28,7 @@ import okhttp3.MultipartBody;
 import retrofit2.Callback;
 import okhttp3.RequestBody;
 import retrofit2.Call;
+
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -43,10 +44,6 @@ public class PhotoUpload extends AppCompatActivity {
         setContentView(R.layout.activity_photo_upload);
         imageView = (ImageView) findViewById(R.id.my_work);
         desc = findViewById(R.id.work_desc);
-//        Retrofit retrofit = new Retrofit.Builder()
-//                .baseUrl("h")
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build();
 
     }
 
@@ -109,51 +106,8 @@ public class PhotoUpload extends AppCompatActivity {
     }
 
     public void sendToServer(View view) {
-
-    String description = desc.getText().toString();
-    uploadFile(description,1);
-//        //pass it like this
-//        RequestBody requestFile =
-//                RequestBody.create(MediaType.parse("multipart/form-data"), file);
-//        //creating request body for file
-//        RequestBody requestFile = RequestBody.create(MediaType.parse(getContentResolver().getType(fileUri)), file);
-//        RequestBody descBody = RequestBody.create(MediaType.parse("text/plain"), desc);
-//
-//        //The gson builder
-//        Gson gson = new GsonBuilder()
-//                .setLenient()
-//                .create();
-//
-//
-//        //creating retrofit object
-//        Retrofit retrofit = new Retrofit.Builder()
-//                .baseUrl("")
-//                .addConverterFactory(GsonConverterFactory.create(gson))
-//                .build();
-//
-//        //creating our api
-//        UmeedApi api = retrofit.create(UmeedApi.class);
-//
-//        //creating a call and calling the upload image method
-//        Call<MyResponse> call = api.uploadImage(requestFile, descBody);
-//
-//        //finally performing the call
-//        call.enqueue(new Callback<MyResponse>() {
-//            @Override
-//            public void onResponse(Call<MyResponse> call, Response<MyResponse> response) {
-//                if (!response.body().error) {
-//                    Toast.makeText(getApplicationContext(), "File Uploaded Successfully...", Toast.LENGTH_LONG).show();
-//                } else {
-//                    Toast.makeText(getApplicationContext(), "Some error occurred...", Toast.LENGTH_LONG).show();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<MyResponse> call, Throwable t) {
-//                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
-//            }
-//        });
-
+        String description = desc.getText().toString();
+        uploadFile(description,1);
     }
 
     private void uploadFile(String desc,int empId) {
@@ -182,24 +136,29 @@ public class PhotoUpload extends AppCompatActivity {
         UmeedApi api = retrofit.create(UmeedApi.class);
 
         //creating a call and calling the upload image method
-        Call<PhotoUpload> call = api.uploadImage(requestFile, descBody);
+        Call<WorkData> call = api.uploadImage(requestFile, descBody,empInt);
 
         //finally performing the call
-        call.enqueue(new Callback<PhotoUpload>() {
+        call.enqueue(new Callback<WorkData>() {
             @Override
             public void onResponse(Call<WorkData> call, Response<WorkData> response) {
-                if (!response.body().error) {
-                    Toast.makeText(getApplicationContext(), "File Uploaded Successfully...", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Some error occurred...", Toast.LENGTH_LONG).show();
+
+                if (!response.isSuccessful()) {
+                    Log.d("Error: ", String.valueOf(response.code()));
+                    return;
                 }
+                    Toast.makeText(getApplicationContext(), "Data and File Uploaded Successfully...", Toast.LENGTH_LONG).show();
             }
 
             @Override
-            public void onFailure(Call<MyResponse> call, Throwable t) {
+            public void onFailure(Call<WorkData> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+
             }
         });
+
+
+
     }
 
 
