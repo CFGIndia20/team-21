@@ -21,7 +21,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:id="@+id/login_btn">
+        android:id="@+id/login_btn"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VerifyTask"
+        android:id="@+id/VerifyTask">
 
     </Button>
 </LinearLayout>

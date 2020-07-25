@@ -19,6 +19,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -57,22 +60,41 @@ public class LoginActivity extends AppCompatActivity {
     protected void SignIn(){
         //TODO: get signin results from backend
         Log.d("1","hello");
-        StringRequest request = new StringRequest(Request.Method.POST, "http://ramji12.atwebpages.com/test.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://ramji12.atwebpages.com/signin_back.php",
 
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        if(response.contains("1")){
-                            //startActivity(user);
-                            //Toast.makeText(getApplicationContext(), "IT works", Toast.LENGTH_SHORT).show();
-                            SharedPreferences sharedPreferences = getSharedPreferences("login_details",MODE_PRIVATE);
-                            sharedPreferences.edit().putInt("user_type",1).apply();
-                            sharedPreferences.edit().putInt("user_id",12345).apply();
+                        try {
+                            JSONObject mainObject = new JSONObject(response);
+                            String type = mainObject.getString("Type");
+                            Log.d("response:",type);
+                            if(type.equals("2")){
+                                //startActivity(user);
+                                //Toast.makeText(getApplicationContext(), "IT works", Toast.LENGTH_SHORT).show();
+                                SharedPreferences sharedPreferences = getSharedPreferences("login_details",MODE_PRIVATE);
+                                sharedPreferences.edit().putString("user_type",type).apply();
+                                sharedPreferences.edit().putInt("user_id",12345).apply();
 
+                            }
+                            if(type.equals("1")){
+                                Intent intent = new Intent(getApplicationContext(), UserViewWork.class);
+                                //intent.putExtra("emergencyId", id.getId());
+                                SharedPreferences sharedPreferences = getSharedPreferences("login_details",MODE_PRIVATE);
+                                sharedPreferences.edit().putString("user_type",type).apply();
+                                sharedPreferences.edit().putInt("user_id",12345).apply();
+                                startActivity(intent);
+                            }
+
+                            else{
+                                Toast.makeText(getApplicationContext(),"Try Again!",Toast.LENGTH_SHORT).show();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
-                        else{
-                            Toast.makeText(getApplicationContext(),"Try Again!",Toast.LENGTH_SHORT).show();
-                        }
+
+
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -84,8 +106,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             protected Map<String,String> getParams() throws AuthFailureError{
                 Map<String,String> params = new HashMap<>();
-                params.put("email",name_txt.toString());
-                params.put("password",psw_txt.toString());
+                params.put("email",name_txt.getText().toString());
+                params.put("password",psw_txt.getText().toString());
                 return params;
             }
         };

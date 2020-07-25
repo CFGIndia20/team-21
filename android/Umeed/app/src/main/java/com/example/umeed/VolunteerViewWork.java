@@ -26,5 +26,11 @@ public class VolunteerViewWork extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        taskList.add(new Task("Nisha",25));
+        taskList.add(new Task("Rekha",30));
+
+        adapter = new TaskAdapter(this, taskList);
+        recyclerView.setAdapter(adapter);
     }
 }

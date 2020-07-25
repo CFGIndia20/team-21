@@ -5,19 +5,12 @@ public class Task {
     private int mCount;
     private boolean mVerify;
 
-    public Task(String task, int count, boolean verify) {
+    public Task(String task, int count) {
         mTask = task;
         mCount = count;
-        mVerify = verify;
     }
 
-    private boolean isVerified(){
-        return mVerify;
-    }
 
-    private void changeVerified(boolean verify){
-        //TODO: change verify;
-    }
 
     public String getmTask() {
         return mTask;
@@ -35,12 +28,6 @@ public class Task {
         this.mCount = mCount;
     }
 
-    public boolean ismVerify() {
-        return mVerify;
-    }
 
-    public void setmVerify(boolean mVerify) {
-        this.mVerify = mVerify;
-    }
 
 }

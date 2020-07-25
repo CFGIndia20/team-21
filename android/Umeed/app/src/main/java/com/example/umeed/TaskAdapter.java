@@ -26,7 +26,7 @@ public class TaskAdapter extends
     @Override
     public TaskAdapter.TaskViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mCtx);
-        View view = inflater.inflate(R.layout.one_task, null);
+        View view = inflater.inflate(R.layout.one_task, parent,false);
         TaskViewHolder holder = new TaskViewHolder(view);
         return holder;
     }
@@ -35,10 +35,8 @@ public class TaskAdapter extends
     @Override
     public void onBindViewHolder(@NonNull TaskAdapter.TaskViewHolder holder, int position) {
         Task task = taskList.get(position);
-
         holder.taskName.setText(task.getmTask());
         holder.count.setText(task.getmCount());
-        //holder.verify = task.ismVerify();
     }
 
     @Override
@@ -48,14 +46,12 @@ public class TaskAdapter extends
 
     class TaskViewHolder extends RecyclerView.ViewHolder {
         TextView taskName, count;
-        Button verify;
         public TaskViewHolder(@NonNull View itemView)
         {
             super(itemView);
 
             taskName = itemView.findViewById(R.id.task_name);
             count = itemView.findViewById(R.id.count);
-            verify = itemView.findViewById(R.id.verify_button);
 
         }
     }

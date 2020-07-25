@@ -54,9 +54,9 @@ public class SigninActivity extends AppCompatActivity {
         psw = findViewById(R.id.psw);
         psw2 = findViewById(R.id.psw_again);
         phone = findViewById(R.id.phone);
-        Log.d("hello","hi");
+        Log.d("hello",name.toString());
         //TODO: get signin results from backend
-        StringRequest request = new StringRequest(Request.Method.POST, "http://ramji12.atwebpages.com/ImageUploadApi/DbConnect.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://ramji12.atwebpages.com/insert_bac.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -79,12 +79,12 @@ public class SigninActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("email", email.toString());
-                params.put("fullname", name.toString());
-                params.put("password", psw.toString());
-                params.put("age", age.toString());
-                params.put("phone", phone.toString());
-                params.put("communtiy", community.toString());
+                params.put("email", email.getText().toString());
+                params.put("fullname", name.getText().toString());
+                params.put("password", psw.getText().toString());
+                params.put("age", age.getText().toString());
+                params.put("phone", phone.getText().toString());
+                params.put("communtiy", community.getText().toString());
                 return params;
             }
         };
