@@ -21,6 +21,15 @@ public class MainActivity extends AppCompatActivity {
                 //intent.putExtra("emergencyId", id.getId());
                 startActivity(intent);            }
         });
+
+        Button verifyTask = (Button)findViewById(R.id.VerifyTask);
+        verifyTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), VolunteerVerifyWork.class);
+                //intent.putExtra("emergencyId", id.getId());
+                startActivity(intent);            }
+        });
     }
 
     public void insertProductPhoto(View view) {

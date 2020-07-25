@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Detail for Year</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="./listcss.css">
+
+</head>
+<body style="background-color:#ff99cc;">
+<!-- partial:index.partial.html -->
+<div class='container'>
+  <h3 style='text-align: center;'>2018 s Report</h3>
+    <br>
+    <br>
+  <ul>
+    <li class='table-row' style = 'text-align: center;'>
+      <div class='col' data-label='Job Id'>
+        <?php
+        $host = 'fdb29.awardspace.net';
+        $user = '3520158_umeed';
+        $pass = 'ramjireddy1';
+        $database = '3520158_umeed';
+       
+         $conn = mysqli_connect($host, $user, $pass, $database);
+       
+         if (!$conn) 
+         {
+             die('database not connected!');
+         } 
+         else 
+         {
+             mysqli_select_db($conn,$database);
+         }
+         $qer='SELECT Totalrev from revenue where year=2018 ';
+        $result=mysqli_query($conn,$qer);
+        $qert='SELECT SUM(WORK) from work where year=2018 ';
+        $result1=mysqli_query($conn,$qert);
+        $rew=mysqli_fetch_assoc($result);
+        $rew1=mysqli_fetch_assoc($result1);
+        echo " <p>Number of Working Hours: ".$rew1['SUM(WORK)']." </p>
+        <br>
+        <p>Amount Earned: ".$rew['Totalrev']."</p> ";
+        ?>
+        <br>
+    </div>
+    </li>
+  </ul>
+</div>
+<!-- partial -->
+</body>
+</html>

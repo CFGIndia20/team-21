@@ -65,12 +65,12 @@ $(function () {
   var myChart = new Chart(chart, {
     type: 'bar',
     data: {
-      labels: ["January", "February", "March", "April", "May", 'Jul'],
+      labels: ["Company1", "company2", "company3", "company4", "company5", 'company6'],
       datasets: [{
         label: "Lost",
         fill: false,
         lineTension: 0,
-        data: [45, 25, 40, 20, 45, 20],
+        data: [5900, 18305, 40000, 20000, 14005, 10020],
         pointBorderColor: "#4bc0c0",
         borderColor: '#4bc0c0',
         borderWidth: 2,
@@ -96,14 +96,14 @@ $(function () {
   var chart = new Chart(Chart2, {
     type: 'line',
     data: {
-      labels: ["January", "February", "March", "April", 'test', 'test', 'test', 'test'],
+      labels: ["Ball Lamp", "Small Thread Lamp", "Rainbow Lamp", "Diya Set 4", 'Glitz diya', 'Big Diya'],
       datasets: [{
         label: "My First dataset",
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 79, 116)',
         borderWidth: 2,
         pointBorderColor: false,
-        data: [5, 10, 5, 8, 20, 30, 20, 10],
+        data: [150, 85, 85, 170, 95, 370, 370, 10],
         fill: false,
         lineTension: .4,
       }, {

@@ -1,5 +1,24 @@
+<?php 
+session_start();
+if(isset($_SESSION['sid']))
+{
+    header("Location: index1.php");
+}
+
+ ?>
+
+
+
 <!DOCTYPE html> 
 <html> 
+<head>
+  
+    <title>UMEED-LOGIN</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
 <style> 
     /*set border to the form*/ 
       
@@ -81,17 +100,18 @@
   
     <h2>Login!</h2> 
     <!--Step 1 : Adding HTML-->
-    <form action="/action_page.php"> <!--Ananya Add your code!!!-->
+    <FORM action="validation.php" method="post" >
+    <!--Ananya Add your code!!!-->
         <div class="imgcontainer"> 
             <img src= "umeed-logo.jpeg" alt="Avatar" class="avatar"> 
         </div> 
   
         <div class="container"> 
             <label><b>Username</b></label> 
-            <input type="text" placeholder="Enter Username" name="uname" required> 
+            <input type="text" placeholder="Enter Username" name="sid" required> 
   
             <label><b>Password</b></label> 
-            <input type="password" placeholder="Enter Password" name="psw" required> 
+            <input type="password" placeholder="Enter Password" name="password" required> 
   
             <button type="submit">Login</button> 
             <input type="checkbox" checked="checked"> Remember me 
@@ -99,6 +119,7 @@
   
         <div class="container" style="background-color:#ff9fff"> 
             <button type="button" class="cancelbtn">Cancel</button>  
+            <
         </div> 
     </form> 
   

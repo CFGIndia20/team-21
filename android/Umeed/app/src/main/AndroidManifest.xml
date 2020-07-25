@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.umeed">
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    package="com.example.umeed"
+    android:targetSandboxVersion="1">
 
     <application
         android:allowBackup="true"
@@ -23,6 +20,9 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".SigninActivity" />
         <activity android:name=".PhotoUpload" />
+        <activity android:name=".UserViewWork"></activity>
+        <activity android:name=".VolunteerVerifyWork" />
+        <activity android:name=".VolunteerAssignTask" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,5 +31,9 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>
