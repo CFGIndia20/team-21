@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
+    public void viewWorkPosts(View view) {
+        Intent intent = new Intent(this, PhotoUpload.class);
+        startActivity(intent);
+    }
 }

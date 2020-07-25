@@ -6,7 +6,7 @@ public class WorkData {
     private String empId;
     private String encodedImage;
 
-    public WorkData(String desc, String empId, String encodedImage) {
+    public WorkData(String desc, String empId,String encodedImage) {
         this.desc = desc;
         this.empId = empId;
         this.encodedImage = encodedImage;

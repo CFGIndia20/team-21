@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.umeed">
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -13,11 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".SigninActivity"></activity>
-        <activity android:name=".PhotoUpload"></activity>
-
+        <activity android:name=".WorkDoneActivity"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".SigninActivity" />
+        <activity android:name=".PhotoUpload" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
