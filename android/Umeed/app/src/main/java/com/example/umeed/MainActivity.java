@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         verifyTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), VolunteerViewWork.class);
+                Intent intent = new Intent(getApplicationContext(), VolunteerVerifyWork.class);
                 //intent.putExtra("emergencyId", id.getId());
                 startActivity(intent);            }
         });

@@ -2,10 +2,9 @@ package com.example.umeed;
 
 public class Task {
     private String mTask;
-    private int mCount;
-    private boolean mVerify;
+    private String mCount;
 
-    public Task(String task, int count) {
+    public Task(String task, String count) {
         mTask = task;
         mCount = count;
     }
@@ -20,11 +19,11 @@ public class Task {
         this.mTask = mTask;
     }
 
-    public int getmCount() {
+    public String getmCount() {
         return mCount;
     }
 
-    public void setmCount(int mCount) {
+    public void setmCount(String mCount) {
         this.mCount = mCount;
     }
 

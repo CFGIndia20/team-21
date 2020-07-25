@@ -15,7 +15,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".SigninActivity" />
         <activity android:name=".PhotoUpload" />
-        <activity android:name=".VolunteerViewWork" />
+        <activity android:name=".VolunteerVerifyWork" />
         <activity android:name=".VolunteerAssignTask" />
         <activity android:name=".MainActivity">
             <intent-filter>
