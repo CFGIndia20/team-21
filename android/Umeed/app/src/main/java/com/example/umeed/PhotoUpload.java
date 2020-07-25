@@ -107,6 +107,8 @@ public class PhotoUpload extends AppCompatActivity {
 
     public void sendToServer(View view) {
         String description = desc.getText().toString();
+
+        //take empId
         uploadFile(description,1);
     }
 
