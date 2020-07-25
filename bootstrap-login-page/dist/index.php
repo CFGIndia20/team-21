@@ -1,4 +1,11 @@
+<?php 
+session_start();
+if(isset($_SESSION['sid']))
+{
+    header("Location: index1.php");
+}
 
+ ?>
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -31,7 +38,7 @@
 					<div class="row">
 						<form control="" class="form-group">
 							<div class="row">
-								<input type="text" name="username" id="username" class="form__input" placeholder="Username">
+								<input type="text" name="sir" id="username" class="form__input" placeholder="Username">
 							</div>
 							<div class="row">
 								<!-- <span class="fa fa-lock"></span> -->
