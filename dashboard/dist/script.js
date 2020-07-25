@@ -96,7 +96,7 @@ $(function () {
   var chart = new Chart(Chart2, {
     type: 'line',
     data: {
-      labels: ["January", "February", "March", "April", 'test', 'test', 'test', 'test'],
+      labels: ["Ball Lamp", "Small Thread Lamp", "Rainbow Lamp", "Diya Set 4", 'Glitz diya', 'Big Diya'],
       datasets: [{
         label: "My First dataset",
         backgroundColor: 'rgb(255, 99, 132)',
