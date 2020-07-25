@@ -1,12 +1,12 @@
 package com.example.umeed;
 
-public class WorkData {
-
+public class WorkDonePost {
+    // Member variables representing the title and information about the sport.
     private String desc;
     private String empId;
     private String encodedImage;
 
-    public WorkData(String desc, String empId, String encodedImage) {
+    public WorkDonePost(String desc, String empId, String encodedImage) {
         this.desc = desc;
         this.empId = empId;
         this.encodedImage = encodedImage;

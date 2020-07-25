@@ -12,6 +12,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 
 import okhttp3.MediaType;
@@ -109,18 +111,28 @@ public class PhotoUpload extends AppCompatActivity {
         String description = desc.getText().toString();
 
         //take empId
-        uploadFile(description,1);
+        uploadFile(description,"1");
     }
 
-    private void uploadFile(String desc,int empId) {
+    private void uploadFile(String desc,String empId) {
 
+        Bitmap bm = BitmapFactory.decodeFile(picturePath);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.JPEG, 100, baos); // bm is the bitmap object
+        byte[] byteArrayImage = baos.toByteArray();
+
+
+        String encodedImage = Base64.encodeToString(byteArrayImage, Base64.DEFAULT);
+
+        WorkData wrkData = new WorkData(desc,empId,encodedImage);
+        Log.d("Created","Object");
         //creating a file
-        File file = new File(picturePath);
-
-        //creating request body for file
-        RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
-        RequestBody descBody = RequestBody.create(MediaType.parse("text/plain"), desc);
-        RequestBody empInt = RequestBody.create(MediaType.parse("text/plain"), Integer.toString(empId));
+//        File file = new File(picturePath);
+//
+//        //creating request body for file
+//        RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+//        RequestBody descBody = RequestBody.create(MediaType.parse("text/plain"), desc);
+//        RequestBody empInt = RequestBody.create(MediaType.parse("text/plain"), Integer.toString(empId));
 
         //The gson builder
         Gson gson = new GsonBuilder()
@@ -138,7 +150,8 @@ public class PhotoUpload extends AppCompatActivity {
         UmeedApi api = retrofit.create(UmeedApi.class);
 
         //creating a call and calling the upload image method
-        Call<WorkData> call = api.uploadImage(requestFile, descBody,empInt);
+        Call<WorkData> call = api.saveWorkData(wrkData);
+        Log.d("Called","Api");
 
         //finally performing the call
         call.enqueue(new Callback<WorkData>() {
@@ -155,9 +168,10 @@ public class PhotoUpload extends AppCompatActivity {
             @Override
             public void onFailure(Call<WorkData> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
-
             }
         });
+        Log.d("End","End");
+
 
 
 

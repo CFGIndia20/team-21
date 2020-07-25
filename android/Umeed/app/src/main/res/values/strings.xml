@@ -2,4 +2,5 @@
     <string name="app_name">Umeed</string>
     <string name="desc">Description regarding the work.</string>
     <string name="submit">Submit</string>
+    <string name="status">Status</string>
 </resources>
