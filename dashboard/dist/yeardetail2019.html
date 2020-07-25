@@ -10,7 +10,7 @@
 <body style="background-color:#ff99cc;">
 <!-- partial:index.partial.html -->
 <div class='container'>
-  <h3 style='text-align: center;'>2018 s Report</h3>
+  <h3 style='text-align: center;'>2019 s Report</h3>
     <br>
     <br>
   <ul>
@@ -32,9 +32,9 @@
          {
              mysqli_select_db($conn,$database);
          }
-         $qer='SELECT Totalrev from revenue where year=2018 ';
+         $qer='SELECT Totalrev from revenue where year=2019 ';
         $result=mysqli_query($conn,$qer);
-        $qert='SELECT SUM(WORK) from work where year=2018 ';
+        $qert='SELECT SUM(WORK) from work where year=2019 ';
         $result1=mysqli_query($conn,$qert);
         $rew=mysqli_fetch_assoc($result);
         $rew1=mysqli_fetch_assoc($result1);

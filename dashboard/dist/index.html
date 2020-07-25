@@ -9,6 +9,15 @@
 </head>
 <body>
 <!-- partial:index.partial.html -->
+<span id="google_translate_element"></span>
+            <script type="text/javascript">
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+              }
+              </script>
+              
+              <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+          
 <aside class="side-nav" id="show-side-navigation1">
   <i class="fa fa-bars close-aside hidden-sm hidden-md hidden-lg" data-close="show-side-navigation1"></i>
   <div class="heading">
@@ -44,14 +53,19 @@
           <i class="fa fa-align-right"></i>
         </button>
         <a class="navbar-brand" href="#">my<span class="main-color">Dashboard</span></a>
+        <span id="google_translate_element"></span>
+            <script type="text/javascript">
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+              }
+              </script>
+              
+              <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+          
       </div>
-      <div id="google_translate_element"></div>
       <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           
-          <li><a href="#">hi there
-            
-          </a> </li>
           <li><a href="#"><i data-show="show-side-navigation1" class="fa fa-bars show-side-btn"></i></a></li>
         </ul>
       </div>
@@ -130,7 +144,7 @@
             
 
             <h3>Yearly progress to see highest sales/production</h3>
-            <div id="piechart"></div>
+            <div id="piechart" >
 
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
@@ -158,7 +172,7 @@
               chart.draw(data, options);
             }
             </script>
-            
+            </div>
 
 
 
@@ -263,33 +277,8 @@
 <!-- partial -->
   <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
 <script src='https://cdn.jsdelivr.net/npm/chart.js@2.8.0'></script><script  src="./script.js"></script>
-<div id="piechart"></div>
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-<script type="text/javascript">
-// Load google charts
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-
-// Draw the chart and set the chart values
-function drawChart() {
-  var data = google.visualization.arrayToDataTable([
-  ['Task', 'Hours per Day'],
-  ['Work', 8],
-  ['Eat', 2],
-  ['TV', 4],
-  ['Gym', 2],
-  ['Sleep', 8]
-]);
-
-  // Optional; add a title and set the width and height of the chart
-  var options = {'title':'My Average Day', 'width':550, 'height':400};
-
-  // Display the chart inside the <div> element with id="piechart"
-  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-  chart.draw(data, options);
-}
 </script>
 </body>
 </html>
