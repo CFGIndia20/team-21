@@ -366,8 +366,6 @@ body {background-color: #911686}
 .inf {background-color: #5bc0de}
 
 
-/* كمية الإمبورتات دى علشان البوتستراب تبطل غتاته وتسيب العناصر اللى متعدله فى حالها طبعا الكلام ده فى كود بن بس */
-
 /* Start bootstrap */
 .navbar-right .dropdown-menu {
   right: auto !important;
