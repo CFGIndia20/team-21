@@ -7,7 +7,9 @@ The app communicates with the server using API endpoints created using PHP scrip
 <br>
 
 ## Main Features
-1. Uploading of work(Images, text) by the beneficiaries. Level 1 - Assessment by volunteer(Posting pictures by the woman to prevent major mishap).
-2. Log in and Sign up features for the beneficiaries.
-3. Summarized reports for admin(No of women helped, Communities reached, credits paid to beneficiaries etc).
-4.
+1. Uploading of work(Images, text) by the beneficiaries. 
+2. Assessment of work by volunteer(Posting pictures by the woman to prevent major mishap).
+3. Log in and Sign up features for the beneficiaries.
+4. Summarized reports for admin(No of women helped, credits paid to beneficiaries etc) thus enabling decision making.
+5. Minimalistic UI that can be used by a person from any background.
+6.
