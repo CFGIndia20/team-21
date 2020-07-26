@@ -16,5 +16,5 @@ The app communicates with the server using API endpoints created using PHP scrip
 ## Future plans
 1. Additional reports for admin(Communities reached)
 2. Multilingual android app(so that we can have even better reach)
-3. Calculate future compensation(because incentives matter!)
+3. Calculate compensation for beneficiaries(because incentives matter!)
 
