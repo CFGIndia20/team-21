@@ -12,4 +12,8 @@ The app communicates with the server using API endpoints created using PHP scrip
 3. Log in and Sign up features for the beneficiaries.
 4. Summarized reports for admin(No of women helped, credits paid to beneficiaries etc) thus enabling decision making.
 5. Minimalistic UI that can be used by a person from any background.
-6.
+
+
+## Future plans
+1. Additional reports for admin(Communities reached)
+2. Translation for android app(so that we can have even better reach)
