@@ -5,7 +5,12 @@
   <title>Working Women</title>
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 <link rel="stylesheet" href="./listcss.css">
-
+<style>
+  .ramji
+  {
+    background-color:red;
+  }
+</style>
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -17,34 +22,40 @@
       <div class="col col-2">Name</div>
       <div class="col col-3">Number of Working Hours</div>
     </li>
-    <li class="table-row">
-      <div class="col col-1" data-label="Woman Id">42235</div>
-      <a href="womendetail.html">
-      <div class="col col-2" data-label="Woman Name">Tanvi</div>
+    <?php
+    $host = 'fdb29.awardspace.net';
+  $user = '3520158_umeed';
+  $pass = 'ramjireddy1';
+ $database = '3520158_umeed';
+
+	$conn = mysqli_connect($host, $user, $pass, $database);
+
+	if (!$conn) 
+	{
+    	die('database not connected!');
+	} 
+	else 
+	{
+    	mysqli_select_db($conn,$database);
+      }
+      $qer='SELECT WID,WNAME from employee';
+      $result=mysqli_query($conn,$qer);
+      $num=mysqli_num_rows($result) ;
+      for($i=0;$i<$num;$i++)
+      {
+        $rew=mysqli_fetch_assoc($result);
+        $qert='SELECT SUM(WORK) from WORK where WID=$rew["WID"]';
+      echo "
+         <li style='background-color:#ccffcc;'>
+      <div class='ramji' data-label='Woman Id'>".$rew['WID']."</div>
+      <a href='womendetail.html'>
+      <div class='col col-2' data-label='Woman Name'>".$rew['WNAME']."</div>
       </a>
-      <div class="col col-3" data-label="Working hours">20</div>
-    </li>
-    <li class="table-row" >
-      <div class="col col-1" data-label="Job Id">42442</div>
-      <a href="womendetail.html">
-      <div class="col col-2" data-label="Customer Name">Sowjanya</div>
-      </a>
-      <div class="col col-3" data-label="Working Hours">80</div>
-    </li>
-    <li class="table-row">
-      <div class="col col-1" data-label="Woman Id">42257</div>
-      <a href="womendetail.html">
-      <div class="col col-2" data-label="Customer Name">Mohit</div>
-      </a>
-      <div class="col col-3" data-label="Working Hours">90</div>
-    </li>
-    <li class="table-row">
-      <div class="col col-1" data-label="Woman Id">42311</div>
-      <a href="womendetail.html">
-      <div class="col col-2" data-label="Customer Name">Nishit</div>
-      </a>
-      <div class="col col-3" data-label="Working Hours">100</div>
-    </li>
+      <div class='col col-3' data-label='Working hours'>".$rew1['WID']."</div>
+    </li>";
+  }
+  $conn->close();
+?>
   </ul>
 </div>
 <!-- partial -->
