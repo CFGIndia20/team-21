@@ -102,7 +102,7 @@ public class WorkDoneActivity extends AppCompatActivity {
     }
 
     private void initializeData() {
-        String[] desc,empId,encodedImage;
+        Log.d("Init","Done");
         mWorkData.clear();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://ramji12.atwebpages.com/")
@@ -119,10 +119,12 @@ public class WorkDoneActivity extends AppCompatActivity {
                 }
                 List<WorkData> posts = response.body();
                 for (WorkData post : posts) {
-                    mWorkData.add(new WorkData(post.getDesc(),post.getEmpId(),post.getEncodedImage()));
+                    mWorkData.add(new WorkData(post.getDesc(),post.getEmpId(),post.getEncodedImage(),post.getVerify(),post.getId()));
                 }
+
                 // Notify the adapter of the change.
                 mAdapter.notifyDataSetChanged();
+                Log.d("Finish","Done");
             }
             @Override
             public void onFailure(Call<List<WorkData>> call, Throwable t) {

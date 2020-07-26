@@ -70,7 +70,13 @@ public class WorkDoneAdapter extends RecyclerView.Adapter<WorkDoneAdapter.WorkDo
             String encodedString = currentPost.getEncodedImage();
             desc.setText(currentPost.getDesc());
             byte[] imageByteArray = Base64.decode(encodedString, Base64.DEFAULT);
-
+            if(currentPost.getVerify().equals("1"))
+            {
+                mInfoText.setText("Status: Verified");
+            }
+            else{
+                mInfoText.setText("Status: Not Verified");
+            }
 
             Glide.with(mContext).asBitmap().load(imageByteArray).into(mWorkImage);
         }
@@ -81,7 +87,9 @@ public class WorkDoneAdapter extends RecyclerView.Adapter<WorkDoneAdapter.WorkDo
             Intent detailIntent = new Intent(mContext, DetailActivity.class);
             detailIntent.putExtra("desc", currentWork.getDesc());
             detailIntent.putExtra("emp", currentWork.getEmpId());
+            detailIntent.putExtra("id", currentWork.getId());
             detailIntent.putExtra("img", currentWork.getEncodedImage());
+            detailIntent.putExtra("verify",(currentWork.getVerify()));
             mContext.startActivity(detailIntent);
         }
     }
