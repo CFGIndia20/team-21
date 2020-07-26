@@ -18,3 +18,6 @@ The app communicates with the server using API endpoints created using PHP scrip
 2. Multilingual android app(so that we can have even better reach)
 3. Calculate compensation for beneficiaries(because incentives matter!)
 
+## Video Link
+
+https://drive.google.com/file/d/1eIql6PoWZmkX6hymiJkKg2jZcGRDSO9C/view?usp=drivesdk
