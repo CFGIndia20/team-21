@@ -12,16 +12,33 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -29,14 +46,14 @@ import retrofit2.Callback;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 
-import retrofit2.Response;
+//import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PhotoUpload extends AppCompatActivity {
     String picturePath;
     private ImageView imageView;
-    EditText desc;
+    private EditText desc;
     int id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +116,6 @@ public class PhotoUpload extends AppCompatActivity {
                                 cursor.close();
                             }
                         }
-
                     }
                     break;
             }
@@ -112,61 +128,51 @@ public class PhotoUpload extends AppCompatActivity {
 
     public void sendToServer(View view) {
         String description = desc.getText().toString();
-
+        Log.d("Written Text",description);
         //take empId
-        uploadFile(description,1);
+        uploadFile(description,"1");
     }
 
-    private void uploadFile(String desc,int empId) {
+    private void uploadFile(String desc,String empId) {
 
-        //creating a file
-        File file = new File(picturePath);
+        Bitmap bm = BitmapFactory.decodeFile(picturePath);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.JPEG, 100, baos); // bm is the bitmap object
+        byte[] byteArrayImage = baos.toByteArray();
+        String encodedImage = Base64.encodeToString(byteArrayImage, Base64.DEFAULT);
 
-        //creating request body for file
-        RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
-        RequestBody descBody = RequestBody.create(MediaType.parse("text/plain"), desc);
-        RequestBody empInt = RequestBody.create(MediaType.parse("text/plain"), Integer.toString(empId));
+        Log.d("Created","Object");
 
-        //The gson builder
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
-
-
-        //creating retrofit object
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(UmeedApi.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
-
-        //creating our api
-        UmeedApi api = retrofit.create(UmeedApi.class);
-
-        //creating a call and calling the upload image method
-        Call<WorkData> call = api.uploadImage(requestFile, descBody,empInt);
-
-        //finally performing the call
-        call.enqueue(new Callback<WorkData>() {
-            @Override
-            public void onResponse(Call<WorkData> call, Response<WorkData> response) {
-
-                if (!response.isSuccessful()) {
-                    Log.d("Error: ", String.valueOf(response.code()));
-                    return;
-                }
+        StringRequest request = new StringRequest(Request.Method.POST, "http://ramji12.atwebpages.com/message.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("post response",response);
                     Toast.makeText(getApplicationContext(), "Data and File Uploaded Successfully...", Toast.LENGTH_LONG).show();
-            }
 
+                    }
+                }, new Response.ErrorListener() {
             @Override
-            public void onFailure(Call<WorkData> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+            public void onErrorResponse(VolleyError error) {
+                Log.d("error",error.toString());
 
             }
-        });
+        }
+        ) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("desc", desc);
+                params.put("empId", empId);
+                params.put("encodedImage", encodedImage);
+                return params;
+            }
+        };
 
-
+        Volley.newRequestQueue(this).add(request);
 
     }
+
 
 
 }

@@ -2,4 +2,8 @@
     <string name="app_name">Umeed</string>
     <string name="desc">Description regarding the work.</string>
     <string name="submit">Submit</string>
+    <string name="status">Status</string>
+    <string name="insert_photo">Insert Photo</string>
+    <string name="work_posts">Work Posts</string>
+    <string name="titler">Titler</string>
 </resources>
