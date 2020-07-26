@@ -1,39 +1,9 @@
-# team-21
-Hi friends,
+# N1 SMART
 
-This is just playing with git. Its a nice book though if you wanna give it a read.
-I'm Nishit
-### forgot to mention contact detials :-)
-Anyway ping me at nishitrao1011@gmail.com
-LinkedIn: https://www.linkedin.com/in/nishit-rao-76a04517a
-Looking forward to working with yaall....
-So Excited!!!!!
-
-###
-Hey guys,
-This is Tanvi
+## Overview
+This project contains Android for  mobile and PHP, MySQL, JavaScript, CSS for mobile. The android files are in the android folder. The web files are around them :smiley:.
 <br>
-Looking forward to working with y'all
+The app communicates with the server using API endpoints created using PHP scripts. The app sends and receives both images and text with the server.
 <br>
-PS : Nice book
 
-
-### 
-Hello guys, this is Mohit
-<br>
-Lets communicate via Email
-<br>
-2017.mohit.thorat@ves.ac.in
-<br>
-Looking forward to working with you too :smile: 
-
-
-Hello Guys,
-This is Sowjanya. Really looking forward to working with you all! :)
-sowjanyam.ec17@rvce.edu.in
-
-Hey ,this is Ananya Shrivastava.
-
-
-
-
+# Umeed
