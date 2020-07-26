@@ -155,7 +155,8 @@
 
             // Draw the chart and set the chart values
             function drawChart() {
-              var data = google.visualization.arrayToDataTable([
+             
+      var data = google.visualization.arrayToDataTable([
               ['Task', 'Hours per Day'],
               ['Work', 8],
               ['Eat', 2],
@@ -278,7 +279,15 @@
   <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
 <script src='https://cdn.jsdelivr.net/npm/chart.js@2.8.0'></script><script  src="./script.js"></script>
 
-
+<sdiv id="google_translate_element"></div>
+            <script type="text/javascript">
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+              }
+              </script>
+              
+              <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+          
 </script>
 </body>
 </html>

@@ -34,7 +34,9 @@ public class SigninActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
-
+        getSupportActionBar().setTitle("Sign Up");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         Button loginBtn = (Button) findViewById(R.id.signup);
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -61,9 +63,10 @@ public class SigninActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         Log.d("signup response",response);
-                        Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "User Created!", Toast.LENGTH_SHORT).show();
                         if (response.contains("1")) {
-                            //startActivity(user);
+                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                            startActivity(intent);
                         } else {
                             Toast.makeText(getApplicationContext(), "Try Again!", Toast.LENGTH_SHORT).show();
                         }

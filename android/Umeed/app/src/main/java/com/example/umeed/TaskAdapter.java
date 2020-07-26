@@ -31,8 +31,13 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
                     //TODO:Send Verification to server
                     //Toast.makeText(this, "yayy1",Toast.LENGTH_SHORT).show();
                     Log.d("recycle", count.getText().toString());
+                    verify();
                 }
             });
+        }
+
+        public void verify(){
+
         }
     }
 

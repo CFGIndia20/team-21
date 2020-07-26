@@ -13,20 +13,17 @@
 	else 
 	{
     	mysqli_select_db($conn,$database);
-    	}
- $useq1=$_POST["desc"];
- $useq2=$_POST["empId"];
- $useq3=$_POST["encodedImage"];   
- $que="select * from test";
+    	}  
+ $que="select * from WORK";
  $result1=mysqli_query($conn,$que);
 
  $num=mysqli_num_rows($result1) ;
  $z=array();
-for($i=0;$i<$num;$i++)
+for($i=1;$i<=$num;$i++)
 {
 	
 $row=mysqli_fetch_array($result1) ;  
-$x=["desc"=>$row['desc'],"empId"=>$row['empId'],"encodedImage"=>$row['encodedImage']];
+$x=["wname"=>$row['WNAME'],"work"=>$row['WORK'],"Workas"=>$row['Workas'],"Verified"=>$row['verified']];
   array_push($z,$x);	
 }
  if ($conn->query($que) == TRUE) {

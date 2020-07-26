@@ -14,18 +14,17 @@
 	{
     	mysqli_select_db($conn,$database);
     	}
- $userq1=$_POST["desc"];
- $userq2=$_POST["empId"];
- $userq3=$_POST["encodedImage"]; 
- $userq4=$_POST["verify"];
- $quer="insert into q values('$useq1','$userq2','$userq3','$userq4')";
- if ($conn->query($quer) == TRUE) {
-    $x=["desc"=>$userq1,"empId"=>$userq2,"encodedImage"=>$userq3,"verify"=>$userq4];
+ $as=$_POST["id"];
+ $que="UPDATE  q set verify=1 where id=$as";
+ $r="select * from q where id=$as"; 
+ $result=mysqli_query($conn,$r);
+ $row=mysqli_fetch_array($result) ;  
+$x=["desc"=>$row['desc'],"empId"=>$row['empId'],"encodedImage"=>$row['encodedImage'],"verify"=>$row['verify'],"id"=>$row['id']];	
+
      header('Content-type:application/json');
      $re=json_encode($x);
      echo $re;
-}
-echo 0;
+
 ?>
 
 

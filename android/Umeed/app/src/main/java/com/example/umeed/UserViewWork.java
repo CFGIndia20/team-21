@@ -28,5 +28,14 @@ public class UserViewWork extends AppCompatActivity {
 
             }
         });
+
+        Button review = (Button) findViewById(R.id.review_work);
+        review.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), WorkDoneActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -78,9 +78,10 @@ public class LoginActivity extends AppCompatActivity {
                                 SharedPreferences sharedPreferences = getSharedPreferences("login_details",MODE_PRIVATE);
                                 sharedPreferences.edit().putString("user_type",type).apply();
                                 sharedPreferences.edit().putInt("user_id",12345).apply();
+                                startActivity(intent);
 
                             }
-                            if(type.equals("1")){
+                            else if(type.equals("1")){
                                 Intent intent = new Intent(getApplicationContext(), UserViewWork.class);
                                 //intent.putExtra("emergencyId", id.getId());
                                 SharedPreferences sharedPreferences = getSharedPreferences("login_details",MODE_PRIVATE);
@@ -119,7 +120,5 @@ public class LoginActivity extends AppCompatActivity {
         //return 1;
     }
 
-    protected int SignUp(String name, String pass) {
-        return 1;
-    }
+
 }

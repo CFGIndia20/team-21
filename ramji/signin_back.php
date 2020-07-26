@@ -19,7 +19,7 @@
   $qert="SELECT *from employee";
   $result1=mysqli_query($conn,$qert);
   $num=mysqli_num_rows($result) ;
-  for($i=0;$i<=$num;$i++)
+  for($i=0;$i<$num;$i++)
   {
     $rew=mysqli_fetch_assoc($result1);
     $rew1=mysqli_fetch_assoc($result);
