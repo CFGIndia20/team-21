@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Working Women</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="./listcss.css">
+<style>
+  .body
+  {
+    background-color: #ff9fff;
+  }
+</style>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+  <h2>List of Women</h2>
+    <table>
+      <th>Woman Id</th>
+      <th>Name</th>
+      <th class="col col-3">Number of Working Hours</th>
+    <?php
+    $host = 'fdb29.awardspace.net';
+    $user = '3520158_umeed';
+    $pass = 'ramjireddy1';
+    $database = '3520158_umeed';
+
+	  $conn = mysqli_connect($host, $user, $pass, $database);
+
+    if (!$conn) 
+    {
+        die('database not connected!');
+    } 
+    else 
+    {
+    	mysqli_select_db($conn,$database);
+    }
+    $qer='SELECT WID,WNAME from employee';
+    $result=mysqli_query($conn,$qer);
+    $num=mysqli_num_rows($result) ;
+    for($i=0;$i<$num;$i++)
+    {
+      $rew=mysqli_fetch_assoc($result);
+      $qert='SELECT SUM(WORK) from WORK where WID=$rew["WID"]';
+    echo "
+        <tr>
+        <td class='ramji' data-label='Woman Id'>".$rew['WID']."</th>
+        <a href='womendetail.html'>
+        <td class='col col-2' data-label='Woman Name'>".$rew['WNAME']."</td>
+        </a>
+        <td class='col col-3' data-label='Working hours'>".$rew1['WID']."</td>
+      </tr>";
+    }
+  $conn->close();
+?>
+</div>
+<!-- partial -->
+</body>
+</html>
