@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:hint="Enter Name"
         android:id="@+id/name_text"
-        android:background="@drawable/button_bg"
+        android:background="@drawable/colored_border"
         android:padding="20dp"
         android:layout_margin="10dp"></EditText>
     <EditText
@@ -37,7 +37,7 @@
         android:id="@+id/psw_text"
         android:padding="20dp"
         android:layout_margin="10dp"
-        android:background="@drawable/button_bg"></EditText>
+        android:background="@drawable/colored_border"></EditText>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,14 +49,18 @@
             android:layout_height="wrap_content"
             android:text="Login"
             android:id="@+id/login_btn"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/button_bg"
+            android:layout_margin="10dp">
         </Button>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SIGNUP"
             android:id="@+id/signup_btn"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/button_bg"
+            android:layout_margin="10dp">
         </Button>
     </LinearLayout>
 

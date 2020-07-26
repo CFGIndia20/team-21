@@ -7,13 +7,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Full Name"
-        android:id="@+id/full_name">
+        android:id="@+id/full_name"
+        android:padding="20dp"
+        android:background="@drawable/colored_border"
+        android:layout_margin="10dp">
     </EditText>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter E-Mail"
-        android:id="@+id/email">
+        android:id="@+id/email"
+        android:padding="20dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/colored_border">
 
     </EditText>
     <EditText
@@ -21,14 +27,20 @@
         android:layout_height="wrap_content"
         android:hint="Enter Age"
         android:inputType="number"
-        android:id="@+id/age"/>
+        android:id="@+id/age"
+        android:layout_margin="10dp"
+        android:background="@drawable/colored_border"
+        android:padding="20dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Phone Number"
         android:inputType="phone"
-        android:id="@+id/phone">
+        android:id="@+id/phone"
+        android:background="@drawable/colored_border"
+        android:padding="20dp"
+        android:layout_margin="10dp">
 
     </EditText>
 
@@ -36,7 +48,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Community Name"
-        android:id="@+id/community">
+        android:id="@+id/community"
+        android:padding="20dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/colored_border">
 
     </EditText>
     <EditText
@@ -44,14 +59,20 @@
         android:layout_height="wrap_content"
         android:hint="Enter Password"
         android:inputType="textPassword"
-        android:id="@+id/psw">
+        android:id="@+id/psw"
+        android:background="@drawable/colored_border"
+        android:padding="20dp"
+        android:layout_margin="10dp">
     </EditText>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Password Again"
         android:inputType="textPassword"
-        android:id="@+id/psw_again">
+        android:id="@+id/psw_again"
+        android:background="@drawable/colored_border"
+        android:layout_margin="10dp"
+        android:padding="20dp">
 
     </EditText>
     <Button
@@ -59,7 +80,9 @@
         android:layout_height="wrap_content"
         android:text="Signup"
         android:layout_gravity="center_horizontal"
-        android:id="@+id/signup">
+        android:id="@+id/signup"
+        android:background="@drawable/button_bg"
+        android:padding="20dp">
 
     </Button>
 </LinearLayout>

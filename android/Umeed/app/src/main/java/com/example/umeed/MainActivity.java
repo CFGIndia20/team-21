@@ -13,33 +13,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button loginBtn = (Button)findViewById(R.id.login_btn);
+        Button loginBtn = (Button) findViewById(R.id.login_btn);
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                //intent.putExtra("emergencyId", id.getId());
-                startActivity(intent);            }
+                startActivity(intent);
+            }
         });
 
-        Button verifyTask = (Button)findViewById(R.id.VerifyTask);
-        verifyTask.setOnClickListener(new View.OnClickListener() {
+        Button signup = (Button) findViewById(R.id.sign_up);
+        signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), VolunteerVerifyWork.class);
-                //intent.putExtra("emergencyId", id.getId());
-                startActivity(intent);            }
+                Intent intent = new Intent(getApplicationContext(), SigninActivity.class);
+                startActivity(intent);
+            }
         });
+
     }
 
-    public void insertProductPhoto(View view) {
-        Intent intent = new Intent(this, PhotoUpload.class);
-        startActivity(intent);
-    }
-
-
-    public void viewWorkPosts(View view) {
-        Intent intent = new Intent(this, WorkDoneActivity.class);
-        startActivity(intent);
-    }
 }
