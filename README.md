@@ -1,4 +1,4 @@
-# N1 SMART
+# 21 SMART
 
 ## Overview
 This project contains Android for  mobile and PHP, MySQL, JavaScript, CSS for mobile. The android files are in the android folder and SQL file is in the SQL folder. The web files are around them :smiley:.
