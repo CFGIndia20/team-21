@@ -10,12 +10,11 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="49dp"
-        android:layout_height="47dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="insertProductPhoto"
         android:text="Button"
-        tools:layout_editor_absoluteX="157dp"
-        tools:layout_editor_absoluteY="250dp" />
+        />
 
     <Button
         android:layout_width="match_parent"

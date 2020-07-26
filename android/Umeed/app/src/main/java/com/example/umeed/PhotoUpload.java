@@ -44,6 +44,11 @@ public class PhotoUpload extends AppCompatActivity {
         setContentView(R.layout.activity_photo_upload);
         imageView = (ImageView) findViewById(R.id.my_work);
         desc = findViewById(R.id.work_desc);
+        getSupportActionBar().setTitle("Image Upload");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
 
     }
 

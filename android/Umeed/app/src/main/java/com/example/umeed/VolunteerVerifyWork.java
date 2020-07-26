@@ -22,6 +22,9 @@ public class VolunteerVerifyWork extends AppCompatActivity {
         //Toolbar toolbar =  findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        getSupportActionBar().setTitle("Tasks");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         mAdapter = new TaskAdapter(taskList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());

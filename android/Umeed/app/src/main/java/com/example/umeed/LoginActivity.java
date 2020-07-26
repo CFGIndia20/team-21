@@ -37,6 +37,9 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Login");
         name_txt = findViewById(R.id.name_text);
         psw_txt = findViewById(R.id.psw_text);
+        getSupportActionBar().setTitle("Login");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         Button login = findViewById(R.id.login_btn);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                             String type = mainObject.getString("Type");
                             Log.d("response:",type);
                             if(type.equals("2")){
-                                //startActivity(user);
+                                Intent intent = new Intent(getApplicationContext(), VolunteerVerifyWork.class);
                                 //Toast.makeText(getApplicationContext(), "IT works", Toast.LENGTH_SHORT).show();
                                 SharedPreferences sharedPreferences = getSharedPreferences("login_details",MODE_PRIVATE);
                                 sharedPreferences.edit().putString("user_type",type).apply();

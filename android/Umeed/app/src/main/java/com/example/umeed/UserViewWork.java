@@ -13,6 +13,10 @@ public class UserViewWork extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_view_work);
+        getSupportActionBar().setTitle("Tasks");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
 
         Button login = findViewById(R.id.upload_progress);
         login.setOnClickListener(new View.OnClickListener() {
