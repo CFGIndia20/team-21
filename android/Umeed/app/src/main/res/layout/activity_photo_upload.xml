@@ -28,8 +28,8 @@
         android:layout_gravity="center"
         android:layout_marginTop="80dp"
         android:adjustViewBounds="true"
-        android:maxWidth="60dp"
-        android:maxHeight="60dp"
+        android:maxWidth="80dp"
+        android:maxHeight="80dp"
         android:onClick="selectImage"
         android:scaleType="fitCenter"
         app:srcCompat="@mipmap/ic_add_image" />
